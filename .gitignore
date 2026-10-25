@@ -1,0 +1,9 @@
+.vagrant/
+.env
+*.box
+*.log
+config/noeuds.yml
+config/ssh/
+.DS_Store
+Thumbs.db
+
