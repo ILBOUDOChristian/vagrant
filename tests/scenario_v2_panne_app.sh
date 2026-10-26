@@ -13,7 +13,7 @@
 # Commande : bash tests/scenario_v2_panne_app.sh
 set -euo pipefail
 
-BASE_URL="http://127.0.0.1:8080"
+BASE_URL="${URL_API_BASE:?URL_API_BASE absent — ajoutez-le dans votre fichier .env (voir .env.exemple)}"
 SEUIL_SECONDES=5
 
 requete_info() {

@@ -15,7 +15,7 @@
 # Commande : bash tests/scenario_v4_bascule_bdd.sh
 set -euo pipefail
 
-BASE_URL="http://127.0.0.1:8080"
+BASE_URL="${URL_API_BASE:?URL_API_BASE absent — ajoutez-le dans votre fichier .env (voir .env.exemple)}"
 SEUIL_BASCULE_SECONDES=30
 
 verifier_sante() {

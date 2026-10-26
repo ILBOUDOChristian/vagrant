@@ -12,7 +12,7 @@
 # Les résultats sont affichés et peuvent être copiés dans le dossier d'architecture.
 set -euo pipefail
 
-BASE_URL="http://127.0.0.1:8080"
+BASE_URL="${URL_API_BASE:?URL_API_BASE absent — ajoutez-le dans votre fichier .env (voir .env.exemple)}"
 NB_REQUETES=2000
 CONCURRENCE=50
 ENDPOINT="/info"

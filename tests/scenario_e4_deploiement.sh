@@ -7,7 +7,8 @@ COLOR_INFO="\033[0;32m"
 COLOR_WARN="\033[0;33m"
 COLOR_ERROR="\033[0;31m"
 
-URL="http://127.0.0.1:8080/info"
+BASE_URL="${URL_API_BASE:?URL_API_BASE absent — ajoutez-le dans votre fichier .env (voir .env.exemple)}"
+URL="${BASE_URL}/info"
 LOG_REQUETES="/tmp/e4_charge.log"
 
 echo "========================================================================"

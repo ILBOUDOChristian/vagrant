@@ -92,6 +92,6 @@ systemctl daemon-reload
 systemctl enable resultats-bf
 systemctl restart resultats-bf
 systemctl is-active --quiet resultats-bf
-log_info "L'application RESULTATS-BF est démarrée sur $(hostname) (port 8000)."
-log_info "Sonde locale : http://127.0.0.1:8000/sante"
-log_info "Accessible depuis l'hôte via le répartiteur : http://127.0.0.1:8080/"
+log_info "L'application RESULTATS-BF est démarrée sur $(hostname) (port ${APP_PORT})."
+log_info "Sonde locale : http://127.0.0.1:${APP_PORT}/sante"
+log_info "Accessible depuis l'hôte via le répartiteur : ${URL_API_BASE}/"

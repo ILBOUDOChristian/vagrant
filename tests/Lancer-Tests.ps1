@@ -8,7 +8,26 @@ param(
     [string]$Scenario = ""
 )
 
-$BASE_URL = "http://127.0.0.1:8080"
+# Lecture de URL_API_BASE depuis .env (même racine que le Vagrantfile)
+$EnvFile = Join-Path (Split-Path $PSScriptRoot -Parent) ".env"
+if (-not (Test-Path $EnvFile)) {
+    Write-Host "[ERREUR] Fichier .env introuvable. Copiez .env.exemple vers .env et configurez URL_API_BASE." -ForegroundColor Red
+    exit 1
+}
+$BASE_URL = $null
+Get-Content $EnvFile | ForEach-Object {
+    $line = $_.Trim()
+    if ($line -match '^URL_API_BASE\s*=\s*(.+)$') {
+        $BASE_URL = $Matches[1].Trim().Trim('"').Trim("'")
+    }
+}
+if (-not $BASE_URL) {
+    Write-Host "[ERREUR] URL_API_BASE non definie dans .env. Ajoutez : URL_API_BASE=http://127.0.0.1:8080" -ForegroundColor Red
+    exit 1
+}
+# Exporter pour que les scripts bash heritent de la variable via l'environnement
+$env:URL_API_BASE = $BASE_URL
+
 
 function Write-Titre([string]$t) {
     Write-Host ""
