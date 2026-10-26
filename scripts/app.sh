@@ -36,14 +36,22 @@ print(",".join(hosts))
 PY
 )"
 
+STATIC_SRC="/vagrant/app/static.py"
+STATIC_DST="/opt/resultats-bf/static.py"
+
 if [ ! -f "$APP_SRC" ]; then
   echo "Application manquante : $APP_SRC" >&2
+  exit 1
+fi
+if [ ! -f "$STATIC_SRC" ]; then
+  echo "Module statique manquant : $STATIC_SRC" >&2
   exit 1
 fi
 
 apt-get install -y --no-install-recommends python3 postgresql-client
 install -d -m 0755 /opt/resultats-bf
 install -m 0644 "$APP_SRC" "$APP_DST"
+install -m 0644 "$STATIC_SRC" "$STATIC_DST"
 
 # Copier les fichiers statiques du frontend
 for f in index.html style.css app.js; do

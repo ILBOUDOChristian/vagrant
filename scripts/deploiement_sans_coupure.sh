@@ -64,13 +64,13 @@ for APP in $SERVEURS_APP; do
     sleep 1
 
     log_info "Étape 3 : Mise à jour du code et redémarrage du service sur $APP..."
-    # Exécution via SSH direct sur le réseau privé sans tolérance aux pannes silencieuses
     if [ "$(hostname)" = "$APP" ]; then
         sudo cp /vagrant/app/app.py /opt/resultats-bf/app.py
+        sudo cp /vagrant/app/static.py /opt/resultats-bf/static.py
         sudo systemctl restart resultats-bf
     else
         ssh -o BatchMode=yes -o StrictHostKeyChecking=no "$APP" \
-            "sudo cp /vagrant/app/app.py /opt/resultats-bf/app.py && sudo systemctl restart resultats-bf"
+            "sudo cp /vagrant/app/app.py /opt/resultats-bf/app.py && sudo cp /vagrant/app/static.py /opt/resultats-bf/static.py && sudo systemctl restart resultats-bf"
     fi
 
     log_info "Étape 4 : Attente que la sonde /sante sur $APP réponde HTTP 200..."
