@@ -210,7 +210,7 @@ Write-Blank
 if (-not $Tests) {
     Write-Separator "QUE VOULEZ-VOUS FAIRE ?"
     Write-Blank
-    Write-Host "  $C_BOLD$C_WHITE [1]$C_RESET  $C_GREEN [WEB]  Ouvrir le portail SaaS dans le navigateur$C_RESET"
+    Write-Host "  $C_BOLD$C_WHITE [1]$C_RESET  $C_GREEN [WEB]  Ouvrir le portail  dans le navigateur$C_RESET"
     Write-Host "         $C_GRAY$FRONTEND_URL$C_RESET"
     Write-Blank
     Write-Host "  $C_BOLD$C_WHITE [2]$C_RESET  $C_BLUE [TER]  Lancer les tests de validation dans ce terminal$C_RESET"

@@ -153,7 +153,7 @@ else
     echo "  [ATTENTION] HAProxy : Inactif"
 fi
 echo "================================================================================"
-BASE_URL="${URL_API_BASE:?URL_API_BASE non défini dans l'environnement de provisionnement}"
+BASE_URL="${URL_API_BASE:?URL_API_BASE non defini}"
 echo ""
 echo "  Accès au Portail Web : ${BASE_URL}/ "
 echo "  Endpoints disponibles :"
